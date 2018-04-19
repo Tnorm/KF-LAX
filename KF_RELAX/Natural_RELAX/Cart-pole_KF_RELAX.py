@@ -4,6 +4,7 @@ CARTPOLE
 import gym
 import torch.optim as optim
 import numpy as np
+import matplotlib.pyplot as plt
 
 resume = False
 render = False
@@ -15,13 +16,14 @@ from torch.autograd import Variable
 from torch.distributions import Bernoulli
 from natural_RELAX import RELAX, REINFORCE, sampling_process
 from approx_net import RELAX_Net
+from K_FAC import KFAC
 
 
 class Agent(nn.Module):
     def __init__(self, input_dim):
         super(Agent, self).__init__()
         self.linear = nn.Linear(input_dim, 2)
-        self.Softmax= nn.Softmax()
+        self.Softmax= nn.Softmax(dim=1)
     def forward(self, input):
         out = self.Softmax(self.linear(input))
         return out
@@ -33,8 +35,8 @@ env = gym.make('CartPole-v0')
 
 #### PARAMETERS
 episodes = 5000
-learning_rate = 0.001
-learning_rate_rlxnet = 0.001
+learning_rate_agent = 0.001
+learning_rate_rlxnet = 0.0001
 gamma = 0.99
 ####
 
@@ -51,7 +53,7 @@ total_reward = []
 
 
 # The method could be REINFORCE, RELAX, REBAR, BASELINE,
-method = "REINFORCE"
+method = "RELAX"
 
 
 
@@ -61,14 +63,14 @@ if method == "RELAX":
     relax_net = RELAX_Net(1)
 
 # Set K-FAC = 1, if you would use Kronecker-factored approximation for the LAX/RELAX estimator,
-k_fac = 0
+k_fac = 1
 if k_fac == 1 and method != "LAX" and method != "RELAX":
     raise KeyError("K-FAC is implemented for lax or relax")
 
-
-
 forward_hooker = []
+fws = []
 backward_hooker = []
+bws = []
 
 def fw_hook(self, input, output):
     forward_hooker.append(input[0])
@@ -90,7 +92,7 @@ if k_fac == 1:
 ########## END SELECT METHOD
 
 ########## SET UP OPTIMIZERS
-optimizer_agent = optim.SGD(agent.parameters(), lr=learning_rate)
+optimizer_agent = optim.SGD(agent.parameters(), lr=learning_rate_agent)
 if method == "RELAX":
     optimizer_approx_net = optim.SGD(relax_net.parameters(), lr=learning_rate_rlxnet)
 ########## END OPTIMIZERS
@@ -98,6 +100,7 @@ if method == "RELAX":
 
 def finish_ep(ep_log_probs, ep_actions, ep_rewards, discounts):
     R = np.flip(np.cumsum(ep_rewards), 0)
+    ## normalizing rewards?
     for log_prob, action, r_, discount in zip(ep_log_probs, ep_actions, R, discounts):
         f_val = (r_ / discount)
         if method == "REINFORCE":
@@ -113,17 +116,20 @@ def finish_ep(ep_log_probs, ep_actions, ep_rewards, discounts):
 
             for param, grad1, grad2 in zip(agent.parameters(), gradients, log_prob_grad):
                 grad1 += grad2
-                param.data -= learning_rate * grad1.data
-
+                param.data -= learning_rate_agent * grad1.data
 
     if method == "RELAX":
+        if k_fac == 1:
+            global backward_hooker, fws, bws
+            backward_hooker = []
+            fws = forward_hooker_mean_aat()
         relax_net.zero_grad()
         G = 0
         for gradient in gradients:
             G += torch.sum(gradient * gradient)
-            #print(param.data)
-            #print(G)
         G.backward()
+        if k_fac == 1:
+            bws = backward_hooker_mean_ggt()
     else:
         optimizer_agent.step()
     return
@@ -142,16 +148,42 @@ def get_action(observation, bernoulli_obj):
     return action, relaxed_action, cond_relaxed_action
 
 
+def forward_hooker_mean_aat():
+    tmp_fw_hook = []
+    for hook in forward_hooker[0]:
+        tmp_fw_hook.append(Variable(torch.zeros(hook.size()[0], hook.size()[0])))
+    for forward_hook in forward_hooker:
+        for tmp, hook in zip(tmp_fw_hook, forward_hook):
+            tmp += torch.mm(hook.view(hook.size()[0], 1), hook.view(1, hook.size()[0]))
 
+    tmp_fw_hook = [x / len(forward_hooker) for x in tmp_fw_hook]
+
+    return tmp_fw_hook
+
+def backward_hooker_mean_ggt():
+    tmp_bw_hook = []
+    for hook in backward_hooker[0]:
+        tmp_bw_hook.append(Variable(torch.zeros(hook.size()[0], hook.size()[0])))
+    for backward_hook in backward_hooker:
+        for tmp, hook in zip(tmp_bw_hook, backward_hook):
+            tmp += torch.mm(hook.view(hook.size()[0], 1), hook.view(1, hook.size()[0]))
+
+    tmp_bw_hook = [x / len(backward_hooker) for x in tmp_bw_hook]
+
+    return tmp_bw_hook
 
 
 if __name__ == "__main__":
-
+    run10 = 0
     for i in range(episodes):
         ep_actions = []
         ep_log_probs = []
         ep_rewards = []
         discounts = []
+        forward_hooker = []
+        backward_hooker = []
+        all_fws = []
+        all_bckws = []
         done = False
         reward = 0
         t = 0
@@ -183,18 +215,32 @@ if __name__ == "__main__":
 
             running_reward += reward
 
+
         finish_ep(ep_log_probs, ep_actions, ep_rewards, discounts)
         #loss.backward()
 
         #optimizer_agent.step()
         if method == "RELAX":
-            optimizer_approx_net.step()
+            if k_fac == 0:
+                optimizer_approx_net.step()
+            elif k_fac == 1:
+                for fw, bw, parameter in zip(fws, bws, relax_net.parameters()):
+                    if parameter.grad is not None:
+                        if k_fac == 1:
+                            kfac_delta = torch.t(KFAC(fw.data, bw.data,
+                                                  torch.t(parameter.grad.data)))
+                            parameter.data -= learning_rate_rlxnet * kfac_delta
+
+        run10 += running_reward
+            #optimizer_approx_net.step()
         optimizer_agent.zero_grad()
 
-        total_reward.append(running_reward)
-
         if i%10 == 0:
-            print("episode:", i, "episode reward:", running_reward, "episode duration:", t)
+            print("episode:", i, "episode reward:", run10/10)
+            total_reward.append(run10/10)
+            plt.plot(range(len(total_reward)), total_reward)
+            plt.pause(0.5)
+            run10 = 0
 
         if i%500 == 0:
             print("average of 500 latest episode rewards:", sum(total_reward[-500:])/500)

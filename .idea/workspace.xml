@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="600e4e21-ba12-4332-8e65-1b039adda6ff" name="Default" comment="" />
+    <list default="true" id="600e4e21-ba12-4332-8e65-1b039adda6ff" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Cart-pole_KF_RELAX.py" afterPath="$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Cart-pole_KF_RELAX.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KF_RELAX/Natural_RELAX/K_FAC.py" afterPath="$PROJECT_DIR$/KF_RELAX/Natural_RELAX/K_FAC.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="natural_RELAX.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/natural_RELAX.py">
+      <file leaf-file-name="K_FAC.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/K_FAC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="44" column="41" lean-forward="false" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+            <state relative-caret-position="205">
+              <caret line="73" column="39" lean-forward="true" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -23,33 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cart-pole_KF_RELAX.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Cart-pole_KF_RELAX.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Cart-pole_KF_RELAX.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="131" column="43" lean-forward="false" selection-start-line="131" selection-start-column="43" selection-end-line="131" selection-end-column="43" />
-              <folding>
-                <element signature="e#17#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="4" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cart-pole_reinforce_keep_skip.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KF_RELAX/RL_application/Cart-pole_reinforce_keep_skip.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="62" column="30" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+            <state relative-caret-position="236">
+              <caret line="127" column="34" lean-forward="true" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
               <folding>
                 <element signature="e#17#27#0" expanded="true" />
               </folding>
@@ -60,32 +43,8 @@
       <file leaf-file-name="approx_net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/approx_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="toy_problem.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/toy_problem.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="K_FAC.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/K_FAC.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="169">
+              <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -104,18 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>variance</find>
-      <find>plot</find>
-      <find>RELAX_NET</find>
-      <find>register_backward_hook</find>
-      <find>reg</find>
-      <find>pr</find>
-      <find>reinforce</find>
-      <find>k_fac</find>
-      <find>agent</find>
-      <find>total_reward2</find>
-      <find>ave</find>
-      <find>average</find>
       <find>2</find>
       <find>2000</find>
       <find>true gradien</find>
@@ -125,15 +72,27 @@
       <find>bernoulli</find>
       <find>deta</find>
       <find>optimize</find>
-      <find>relax_net</find>
       <find>sampling</find>
       <find>salam</find>
       <find>grad</find>
-      <find>print</find>
       <find>backward</find>
       <find>backwar</find>
       <find>loss</find>
       <find>step</find>
+      <find>itera</find>
+      <find>relax_net</find>
+      <find>softma</find>
+      <find>optimizer_approx_net</find>
+      <find>learning</find>
+      <find>bws</find>
+      <find>print</find>
+      <find>runnins</find>
+      <find>learning_rate_rlxnet</find>
+      <find>forward</find>
+      <find>forward_hooker</find>
+      <find>RELAX</find>
+      <find>k_fac</find>
+      <find>fws</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,8 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/initial tests/BasicTest3.py" />
-        <option value="$PROJECT_DIR$/RELAX (REBAR)/BasicTest3.py" />
         <option value="$PROJECT_DIR$/REBAR (RELAX)/BasicTest3.py" />
         <option value="$PROJECT_DIR$/REBAR (RELAX)/BasicTest4.py" />
         <option value="$PROJECT_DIR$/REBAR (RELAX)/RELAX.py" />
@@ -193,6 +150,8 @@
         <option value="$PROJECT_DIR$/REBAR (RELAX)/RL_application/Cart-pole_reinforce_keep_skip.py" />
         <option value="$PROJECT_DIR$/REBAR (RELAX)/Natural_RELAX/Cart-pole_KF_RELAX.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/KF_RELAX/Natural_RELAX/K_FAC.py" />
+        <option value="$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Cart-pole_KF_RELAX.py" />
       </list>
     </option>
   </component>
@@ -299,7 +258,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Cart-pole_reinforce_keep_skip">
+  <component name="RunManager" selected="Python.Cart-pole_KF_RELAX">
+    <configuration name="Cart-pole_KF_RELAX" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/KF_RELAX/Natural_RELAX" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="REBAR (RELAX) PROJECT" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Cart-pole_KF_RELAX.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="Cart-pole_reinforce" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -351,23 +327,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="RELAX_REBAR" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/REBAR (RELAX)" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="REBAR (RELAX) PROJECT" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/REBAR (RELAX)/RELAX_REBAR.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration name="plotter" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -389,16 +348,16 @@
       <item index="0" class="java.lang.String" itemvalue="Python.Natural_RELAX" />
       <item index="1" class="java.lang.String" itemvalue="Python.Cart-pole_reinforce_keep_skip" />
       <item index="2" class="java.lang.String" itemvalue="Python.Cart-pole_reinforce" />
-      <item index="3" class="java.lang.String" itemvalue="Python.RELAX_REBAR" />
-      <item index="4" class="java.lang.String" itemvalue="Python.plotter" />
+      <item index="3" class="java.lang.String" itemvalue="Python.plotter" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Cart-pole_KF_RELAX" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Cart-pole_reinforce_keep_skip" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Cart-pole_reinforce" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Natural_RELAX" />
-        <item index="3" class="java.lang.String" itemvalue="Python.plotter" />
-        <item index="4" class="java.lang.String" itemvalue="Python.RELAX_REBAR" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Cart-pole_KF_RELAX" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Cart-pole_reinforce_keep_skip" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Cart-pole_reinforce" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Natural_RELAX" />
+        <item index="4" class="java.lang.String" itemvalue="Python.plotter" />
       </list>
     </recent_temporary>
   </component>
@@ -765,12 +724,12 @@
     <frame x="-1" y="23" width="1280" height="748" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32552505" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18659128" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13935682" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27105665" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23277183" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19754978" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -953,13 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Handful_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KF_RELAX/toy_relax.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -971,13 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/torch/tensor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="307" column="0" lean-forward="false" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1045,20 +990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/neural_net_architecture.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Natural_RELAX_TOYONLY.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="127" column="11" lean-forward="false" selection-start-line="127" selection-start-column="3" selection-end-line="127" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.2/python_stubs/73051532/torch/_C/_VariableBase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -1070,23 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="923">
           <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/toy_problem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/torch/optim/sgd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="83" column="28" lean-forward="false" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1111,16 +1025,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/K_FAC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KF_RELAX/RELAX_REBAR.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1135,16 +1039,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/approx_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KF_RELAX/RL_application/keep.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1155,41 +1049,111 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Handful_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-89">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/KF_RELAX/RL_application/Cart-pole_reinforce_keep_skip.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
+        <state relative-caret-position="166">
           <caret line="62" column="30" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
           <folding>
-            <element signature="e#17#27#0" expanded="true" />
+            <element signature="e#17#27#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/toy_problem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#12#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/neural_net_architecture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/natural_RELAX.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="44" column="41" lean-forward="false" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+        <state relative-caret-position="-717">
+          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/approx_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Cart-pole_KF_RELAX.py">
+    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Natural_RELAX_TOYONLY.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="131" column="43" lean-forward="false" selection-start-line="131" selection-start-column="43" selection-end-line="131" selection-end-column="43" />
+        <state relative-caret-position="-35">
+          <caret line="156" column="22" lean-forward="false" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/torch/tensor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="307" column="0" lean-forward="false" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/K_FAC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="73" column="39" lean-forward="true" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
           <folding>
-            <element signature="e#17#27#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/torch/optim/sgd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="4" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="338">
+          <caret line="89" column="45" lean-forward="false" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KF_RELAX/Natural_RELAX/Cart-pole_KF_RELAX.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="127" column="34" lean-forward="true" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
+          <folding>
+            <element signature="e#17#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
