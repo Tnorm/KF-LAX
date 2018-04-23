@@ -4,6 +4,7 @@ CARTPOLE
 import gym
 import torch.optim as optim
 import numpy as np
+import sys
 import matplotlib.pyplot as plt
 
 resume = False
@@ -17,6 +18,7 @@ from torch.distributions import Bernoulli
 from natural_RELAX import RELAX, REINFORCE, sampling_process
 from approx_net import RELAX_Net
 from K_FAC import KFAC
+from Handful_functions import saver
 
 
 class Agent(nn.Module):
@@ -34,9 +36,9 @@ env = gym.make('CartPole-v0')
 
 
 #### PARAMETERS
-episodes = 5000
+episodes = 3000
 learning_rate_agent = 0.001
-learning_rate_rlxnet = 0.0001
+learning_rate_rlxnet = 0.001
 gamma = 0.99
 ####
 
@@ -47,6 +49,7 @@ else:
 
 
 total_reward = []
+collector = []
 
 
 ########## SELECT METHOD
@@ -56,6 +59,7 @@ total_reward = []
 method = "RELAX"
 
 
+torch.manual_seed(18)
 
 
 relax_net = None
@@ -121,13 +125,14 @@ def finish_ep(ep_log_probs, ep_actions, ep_rewards, discounts):
     if method == "RELAX":
         if k_fac == 1:
             global backward_hooker, fws, bws
-            backward_hooker = []
             fws = forward_hooker_mean_aat()
-        relax_net.zero_grad()
         G = 0
         for gradient in gradients:
             G += torch.sum(gradient * gradient)
+        backward_hooker = []
+        relax_net.zero_grad()
         G.backward()
+        print(backward_hooker)
         if k_fac == 1:
             bws = backward_hooker_mean_ggt()
     else:
@@ -174,7 +179,6 @@ def backward_hooker_mean_ggt():
 
 
 if __name__ == "__main__":
-    run10 = 0
     for i in range(episodes):
         ep_actions = []
         ep_log_probs = []
@@ -201,6 +205,11 @@ if __name__ == "__main__":
             t += 1
 
             bernoulli_obj = Bernoulli(agent(observation)[0, 0])
+            try:
+                bernoulli_obj.sample()
+            except:
+                print(agent(observation)[0, 0], observation)
+                sys.exit()
             action, relaxed_action, cond_relaxed_action = get_action(observation, bernoulli_obj)
 
             observation, reward, done, info = env.step(int(action.data[0]))
@@ -224,23 +233,23 @@ if __name__ == "__main__":
             if k_fac == 0:
                 optimizer_approx_net.step()
             elif k_fac == 1:
-                for fw, bw, parameter in zip(fws, bws, relax_net.parameters()):
+                for fw, bw, parameter in zip(fws, bws, relax_net.parameters()): # or reverse(bws) ??
                     if parameter.grad is not None:
                         if k_fac == 1:
                             kfac_delta = torch.t(KFAC(fw.data, bw.data,
                                                   torch.t(parameter.grad.data)))
                             parameter.data -= learning_rate_rlxnet * kfac_delta
 
-        run10 += running_reward
             #optimizer_approx_net.step()
         optimizer_agent.zero_grad()
+        total_reward.append(running_reward)
 
         if i%10 == 0:
-            print("episode:", i, "episode reward:", run10/10)
-            total_reward.append(run10/10)
-            plt.plot(range(len(total_reward)), total_reward)
-            plt.pause(0.5)
-            run10 = 0
+            print("episode:", i, "average of 500 latest episode rewards:", sum(total_reward[-100:])/100)
+            collector.append(sum(total_reward[-500:])/500)
+            np.save('plotfigs/' + method + str(k_fac) + '.npy', {'method': method, 'res': collector})
+            #plt.plot(range(len(total_reward)), total_reward)
+            #plt.pause(0.5)
 
         if i%500 == 0:
             print("average of 500 latest episode rewards:", sum(total_reward[-500:])/500)
@@ -248,9 +257,6 @@ if __name__ == "__main__":
 
         if i%2000 == 0:
             print("average of 2000 latest episode rewards:", sum(total_reward[-2000:])/2000)
-
-
-
 
 
 

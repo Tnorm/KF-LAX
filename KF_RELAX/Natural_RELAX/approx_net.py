@@ -1,5 +1,6 @@
 import torch
 from torch.autograd import Variable
+import torch.nn.functional as F
 
 
 ### Cart-pole RELAX_net
@@ -9,8 +10,10 @@ class RELAX_Net(torch.nn.Module):
         super(RELAX_Net, self).__init__()
         # an affine operation: y = Wx + b
         self.w = torch.nn.Linear(input_dim+1, 1, bias=False)
+        #self.w2 = torch.nn.Linear(2, 1, bias=False)
+        #self.w2 = torch.nn.Linear(3, 1, bias=False)
         #self.w2 = torch.nn.Linear(1, 1)
-        #self.m = torch.nn.Softmax()
+        #self.sftmx = torch.nn.Softmax()
         #self.a = torch.nn.Parameter(torch.FloatTensor(1))
         #self.b = torch.nn.Parameter(torch.FloatTensor(1))
         #self.c = torch.nn.Parameter(torch.FloatTensor(1))
@@ -23,11 +26,11 @@ class RELAX_Net(torch.nn.Module):
 
         inp_u = inp.unsqueeze(1)
         input = torch.cat((inp_u, Variable(torch.ones(inp_u.shape[0],1))), 1)
-        out = self.w(input)
+        return F.sigmoid(self.w(input))
         #out = torch.nn.Sigmoid()(self.a * (inputs ** 1) + self.b * inputs + self.c)
         #out = self.w2(out)
         #return self.w* inp
-        return out
+        #return out
 
     def features_num(self, inp):
         size = inp.size()[1:]  # all dimensions except the batch dimension

@@ -2,8 +2,7 @@
 
 
 import torch
-
-
+import pickle
 
 
 
@@ -27,4 +26,12 @@ def standard_gaussian_noise_sampler_func(num):
 def bernoulli_density(samples, param):
     return param * samples + (1-param) * (1-samples)
 
-pass
+def saver(S, filename="default.pkl"):
+    with open(filename, 'wb') as fp:
+        pickle.dump(S, fp)
+
+def loader(filename="default.pkl"):
+    with open(filename, 'rb') as fp:
+        dic = pickle.load(fp)
+
+    return dic
