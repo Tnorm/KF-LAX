@@ -10,6 +10,7 @@ from torch.autograd import Variable
 
 
 Std = None
+input_dim = 784
 h_dim = 64
 z_dim = 2
 h_dim2 = 16
@@ -68,7 +69,7 @@ inputs = Variable(all_images.view(-1,784), requires_grad = True)
 dec = repnet(inputs)
 grads = torch.autograd.grad(dec.sum(), inputs)
 
-grad_show = grads[0].view(-1, 1, 28, 28)
+grad_show = grads[0][:,0:input_dim].view(-1, 1, 28, 28)
 
 #imshow(torchvision.utils.make_grid(grad_show.data.clamp(0,1)))
 #plt.savefig("grad.png")
@@ -81,12 +82,15 @@ D_mean = torch.mean(Data, 0)
 Data2 = Data2 - D_mean.expand_as(Data2)
 U,S,V = torch.svd(torch.t(Data2))
 PCA = torch.mm(Data2, U[:, :2])
-print(PCA)
+#print(PCA)
 
 fig, ax = plt.subplots()
-for label in np.unique(labels[:3]):
-    ix = np.where(labels == label)
-    ax.scatter(Data.data[ix,0], Data.data[ix,1], label = str(label), s=15)
+for label in np.unique(labels[:2]):
+    ix = np.where(labels.numpy() == label)
+    #ax.scatter(Data.data[ix,0], Data.data[ix,1], label = str(label), s=5)
+    #ax.scatter(Data.data[ix, 2], Data.data[ix, 3], label=str(label), s=5)
+    #ax.scatter(Data.data[ix, 4], Data.data[ix, 5], label=str(label), s=5)
+    #ax.scatter(Data.data[ix, 6], Data.data[ix, 7], label=str(label), s=5)
     #ax.scatter(PCA.data[ix, 0], PCA.data[ix, 1], label=str(label), s=20)
 
 ax.legend()

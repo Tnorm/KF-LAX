@@ -14,12 +14,11 @@ import sys
 
 resume = False
 torch.manual_seed(2)
-batch_size = 20
-epoch = 300
+batch_size = 100
+epoch = 1000
 input_dim = 784
 h_dim = 64
-h_dim2 = 2
-z_dim = 16
+z_dim = 8
 device = "cpu"
 train = 1
 
@@ -60,7 +59,7 @@ if resume == True:
     repnet = torch.load('repnet.pt')
 else:
     repnet = bpnet(input_dim).to(device)
-optimizer = optim.Adam(repnet.parameters(), lr=1e-4)
+optimizer = optim.Adam(repnet.parameters(), lr=5e-4)
 
 transform = transforms.Compose(
         [transforms.ToTensor()])
@@ -75,7 +74,7 @@ trainloader = torch.utils.data.DataLoader(mnist_train, batch_size=batch_size,
 
 criterion = nn.MSELoss()
 l = None
-alpha = 0.5 #3 not bad
+alpha = 200 #3 not bad
 #beta = 1 #1 not bad
 #sys.exit()
 I = Variable(torch.eye(z_dim))
@@ -88,14 +87,13 @@ if train:
             dec = repnet(inputs_)
             grads = torch.autograd.grad(dec.sum(), inputs_, create_graph=True)
             #regul = dec.grad(2,1).sum()
-            D_mean = torch.mean(dec, 0)
-            D_std = torch.std(dec,0)
-            dec = (dec - D_mean.expand_as(dec))/ (D_std.expand_as(dec))
-            regul = ((dec[:,0] * dec[:,1]))
+            #regul = (dec - g_noise2).norm(2,1)
+            n_dec = dec/(dec.norm(2,0)+ 1e-16)
+            regul = torch.max(torch.abs(torch.matmul(torch.t(n_dec),n_dec)) - I)
             #regul = (dec - torch.rand(dec.size())) ** 2
             #regul = grads[0].norm(2, 1).sum()
-            loss = ((inputs_ - grads[0])
-                    .norm(2, 1).sum()+ alpha * (regul.sum() ** 2))/batch_size
+            loss = ((inputs_[:,0:input_dim] - grads[0][:,0:input_dim])
+                    .norm(2, 1).sum() + alpha * regul)/batch_size
 
             #for param in repnet.parameters():
             #    loss += beta * param.norm(2)
@@ -105,9 +103,9 @@ if train:
             optimizer.zero_grad()
             l = loss.data[0]
             if i%100 == 0:
-                print(i, l, alpha * regul.sum()/batch_size)
-            if i == 200:
-                grad_show = grads[0].data.clamp(0,1).view(-1, 1, 28, 28)
+                print(i, l, alpha * regul/batch_size)
+            if i == 500 and ep % 10 == 0:
+                grad_show = grads[0][:,0:input_dim].data.clamp(0,1).view(-1, 1, 28, 28)
                 input_show = inputs.data.view(-1, 1, 28, 28)
 
                 imshow(torchvision.utils.make_grid(input_show))
