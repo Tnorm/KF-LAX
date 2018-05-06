@@ -3,3 +3,4 @@ KF_RELAX/RL_application/baselines/
 KF_RELAX/data/
 *.pt
 *.pyc
+*.png
